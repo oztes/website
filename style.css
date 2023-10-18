@@ -1,24 +1,45 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #f4f4f4;
 }
+
 header {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    padding: 1em;
+    padding: 1em 0;
 }
-main {
-    margin: 2em;
+
+section {
+    padding: 2em;
+    background-color: #fff;
+    margin: 1em 0;
 }
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5em;
+}
+
+.experience-item, .project-item, .writing-item {
+    margin: 1em 0;
+}
+
+a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 footer {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    padding: 1em;
+    padding: 1em 0;
 }
