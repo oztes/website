@@ -1,0 +1,71 @@
+/*
+ * uchicago web colors from
+ * http://identity.uchicago.edu/guidelines/palette.shtml
+ */
+
+ body {
+    font-family: palatino, serif;
+    background-color: white;
+    padding: 10px;
+  }
+  az
+  div.banner {
+    background-color: #99CCFF;
+    color: black;
+    border: thin solid black;
+    padding-left: 5px;
+  }
+  
+  div.navbar {
+    background-color: #99CCFF;
+    border: thin solid black;
+    margin-top: 10px;
+    padding: 5px;
+    color: black;
+  }
+  
+  div.banner, div.navbar {
+    margin-right: 0.5in;
+  }
+  
+  div.main {
+    margin-right: 1in;
+  }
+  
+  a, a.navbar-link, a:visited, a.navbar-link:visited {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  a:hover, a.navbar-link:hover {
+    text-decoration: underline;
+  }
+  
+  td.quarter {
+    text-align: right;
+    white-space : nowrap;
+  }
+  
+  li {
+    padding-bottom : 1em;
+    font-size : smaller;
+  }
+  
+  pre {
+    font-size : larger;
+  }
+  
+  blockquote {
+    width : 6in;
+    font-size : smaller;
+  }
+  
+  blockquote.largefont {
+    width : 7in;
+    font-size : larger;
+  }
+  
+  a.blackborder {
+    color : black;
+  }
+  
