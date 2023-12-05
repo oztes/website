@@ -2,7 +2,6 @@
 @font-face {
     font-family: "Futura-Bold";
     src:
-      local("Futura-Bold"),
       url("Futura-Bold.woff") format("woff");
   }
   
