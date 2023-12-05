@@ -17,7 +17,9 @@ body {
 }
 
 
-
+main {
+    margin: 20px
+}
 
 header {
     background-color: #333;
