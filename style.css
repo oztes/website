@@ -7,6 +7,13 @@ body {
     background-color: #f4f4f4;
 }
 
+#color-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1; /* This ensures the grid goes behind other content */
+}
 
 
 header {
