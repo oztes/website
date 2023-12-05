@@ -5,16 +5,21 @@
 
     function populateGrid() {
         const grid = document.getElementById('color-grid');
-        const rows = 4; // Adjust the number of rows as needed
-        const cols = 5; // Adjust the number of columns as needed
+        const squareSize = 100; // Size of each square (width and height) in pixels
+
+        // Calculate number of columns and rows needed to fill the viewport
+        const cols = Math.floor(window.innerWidth / squareSize);
+        const rows = Math.floor(window.innerHeight / squareSize);
+
+        grid.style.display = 'grid';
+        grid.style.gridTemplateColumns = `repeat(${cols}, ${squareSize}px)`;
 
         for (let i = 0; i < rows; i++) {
             for (let j = 0; j < cols; j++) {
                 const cell = document.createElement('div');
                 cell.style.backgroundColor = randomColor();
-                cell.style.width = '50px'; // Adjust cell size as needed
-                cell.style.height = '50px';
-                cell.style.display = 'inline-block';
+                cell.style.width = `${squareSize}px`;
+                cell.style.height = `${squareSize}px`;
                 grid.appendChild(cell);
             }
         }
@@ -22,4 +27,3 @@
 
     window.onload = populateGrid;
 })();
-
