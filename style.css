@@ -28,7 +28,7 @@ header {
 #gradient-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    grid-gap: 10px; /* space between cells */
+    grid-gap: 1px; /* space between cells */
 }
 
 
