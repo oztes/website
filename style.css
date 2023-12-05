@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -15,6 +15,13 @@ header {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns */
     grid-gap: 10px; /* space between cells */
+}
+
+@font-face {
+    font-family: 'HEDVIG_LETTERS_SANS';
+    font-style: normal;
+    font-weight: 12;
+    src: url(HEDVIG_LETTERS_SANS-REGULAR.ttf) format('ttf');
 }
 
 .grid-cell {
