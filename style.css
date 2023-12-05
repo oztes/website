@@ -1,10 +1,10 @@
 @font-face {
-    font-family: futura;
-    src: url(futur.ttf);
+    font-family: 'futura';
+    src: url('futur.ttf') format(truetype);
 }
 
 body {
-    font-family: futura;
+    font-family: 'futura';
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
