@@ -1,12 +1,5 @@
 
-  
-body {           
-    font-family: 'Switzer', sans-serif;                                 
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
+ 
 #color-grid {
     position: absolute;
     top: 0;
@@ -14,6 +7,16 @@ body {
     width: 100%;
     z-index: -1; /* This ensures the grid goes behind other content */
 }
+
+
+body {           
+    font-family: 'Switzer', sans-serif;                                 
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
 
 
 header {
