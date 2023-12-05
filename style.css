@@ -17,12 +17,7 @@ header {
     grid-gap: 10px; /* space between cells */
 }
 
-@font-face {
-    font-family: 'HEDVIG_LETTERS_SANS';
-    font-style: normal;
-    font-weight: 12;
-    src: url(HEDVIG_LETTERS_SANS-REGULAR.ttf) format('ttf');
-}
+
 
 .grid-cell {
     width: 100px;
