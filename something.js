@@ -5,7 +5,7 @@
 
     function populateGrid() {
         const grid = document.getElementById('color-grid');
-        const squareSize = 10; // Size of each square (width and height) in pixels
+        const squareSize = 1; // Size of each square (width and height) in pixels
 
         // Calculate number of columns and rows needed to fill the viewport
         const cols = Math.floor(window.innerWidth / squareSize);
