@@ -1,7 +1,12 @@
 
-body {
-    font-family: 'Futura PT', sans-serif;
-                                                
+@font-face {
+    font-family: "Futura-Bold";
+    src:
+      local("Futura-Bold"),
+      url("Futura-Bold.woff") format("woff");
+  }
+  
+body {                                            
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
