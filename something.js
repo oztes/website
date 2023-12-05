@@ -6,7 +6,7 @@
     function populateGrid() {
         const grid = document.getElementById('color-grid');
         const rows = 4; // Adjust the number of rows as needed
-        const cols = 3; // Adjust the number of columns as needed
+        const cols = 5; // Adjust the number of columns as needed
 
         for (let i = 0; i < rows; i++) {
             for (let j = 0; j < cols; j++) {
