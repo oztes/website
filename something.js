@@ -12,8 +12,8 @@
             for (let j = 0; j < cols; j++) {
                 const cell = document.createElement('div');
                 cell.style.backgroundColor = randomColor();
-                cell.style.width = '100px'; // Adjust cell size as needed
-                cell.style.height = '100px';
+                cell.style.width = '50px'; // Adjust cell size as needed
+                cell.style.height = '50px';
                 cell.style.display = 'inline-block';
                 grid.appendChild(cell);
             }
