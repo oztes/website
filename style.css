@@ -1,9 +1,16 @@
+@font-face {
+    font-family: futura;
+    src: url(futur.ttf);
+}
+
 body {
-    font-family: palatino, serif;
+    font-family: futura;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
+
+
 
 header {
     background-color: #333;
