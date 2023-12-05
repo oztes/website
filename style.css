@@ -6,7 +6,8 @@
     url("Futura-Bold.woff") format("woff");
   }
   
-body {                                            
+body {           
+    font-family: "Futura-Bold"                                 
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
