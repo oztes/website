@@ -3,27 +3,23 @@
         return '#' + Math.floor(Math.random() * 16777215).toString(16);
     }
 
-    function createGradient() {
-        const color1 = randomColor();
-        const color2 = randomColor();
-        const color3 = randomColor();
-        return `linear-gradient(${color1}, ${color2}, ${color3})`;
-    }
+    function populateGrid() {
+        const grid = document.getElementById('color-grid');
+        const rows = 3; // Adjust the number of rows as needed
+        const cols = 3; // Adjust the number of columns as needed
 
-    function populateGrid(rows, columns) {
-        const grid = document.getElementById('gradient-grid');
-        grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-        grid.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-
-        for (let i = 0; i < rows * columns; i++) {
-            const cell = document.createElement('div');
-            cell.classList.add('grid-cell');
-            cell.style.background = createGradient();
-            grid.appendChild(cell);
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                const cell = document.createElement('div');
+                cell.style.backgroundColor = randomColor();
+                cell.style.width = '100px'; // Adjust cell size as needed
+                cell.style.height = '100px';
+                cell.style.display = 'inline-block';
+                grid.appendChild(cell);
+            }
         }
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        populateGrid(9, 3); // Set the number of rows and columns here
-    });
+    window.onload = populateGrid;
 })();
+
