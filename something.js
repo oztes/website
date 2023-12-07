@@ -35,6 +35,10 @@
         return topGridSquares[randomIndex].style.backgroundColor;
     }
 
+
+    const MIN_UPDATE_TIME = 500; // Minimum time for update 
+    const MAX_UPDATE_TIME = 1000; // Maximum time for update 
+
     function populateGrid(gridId, isBottomGrid = false) {
         const grid = document.getElementById(gridId);
         const squareSize = 15; // Size of each square
@@ -65,6 +69,41 @@
                 grid.appendChild(cell);
             }
         }
+
+        if (isBottomGrid) {
+            let bottomGridSquares = Array.from(document.getElementById('bottom-color-grid').children);
+            bottomGridSquares.forEach((square, index) => {
+                setInterval(() => {
+                    if (Math.random() < 0.1) { // 10% chance to change color
+                        changeSquareColor(square, bottomGridSquares, index);
+                    }
+                }, Math.random() * (MAX_UPDATE_TIME - MIN_UPDATE_TIME) + MIN_UPDATE_TIME);
+            });
+        }
+    
+
+        function changeSquareColor(square, squares, index) {
+            const cols = Math.floor(window.innerWidth / 15);
+            let neighborIndices = [
+                index - 1, // left
+                index + 1, // right
+                index - cols, // above
+                index + cols // below
+            ];
+        
+            // Filter out invalid indices
+            neighborIndices = neighborIndices.filter(i => i >= 0 && i < squares.length);
+        
+            if (neighborIndices.length > 0) {
+                // Pick a random neighbor
+                let randomNeighborIndex = neighborIndices[Math.floor(Math.random() * neighborIndices.length)];
+                let neighborColor = squares[randomNeighborIndex].style.backgroundColor;
+                
+                // Change the square's color
+                square.style.backgroundColor = neighborColor;
+            }
+        }
+        
     }
 
     window.onload = () => {
