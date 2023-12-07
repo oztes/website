@@ -14,21 +14,34 @@
     }
 
     function makeShadeFactor(i, cycleLength) {
-        // Adjust the range of the sine wave to prevent full white color
-        const minFactor = 0.1;  // Adjust this value to control the minimum lightness
-        const maxFactor = 0.6;  // Adjust this value to control the maximum lightness
+        const minFactor = 0.7; // MAKES THE DARKEST CLOSEST TO ORIGINAL COLOR
+        const maxFactor = 0.1; // HIGHER MAKES BRIGHTEST BRIGHTER
         return minFactor + (maxFactor - minFactor) * Math.sin(Math.PI * i / cycleLength);
     }
 
-    function populateGrid() {
-        const grid = document.getElementById('color-grid');
-        const squareSize = 30; // Size of each square (width and height) in pixels
+    function getMiddleColor(grid, cols, gradientCycle) {
+        let middleColors = [];
+        for (let j = 0; j < cols; j++) {
+            let middleIndex = (j + Math.floor(gradientCycle / 2)) % gradientCycle;
+            let middleSquare = grid.children[middleIndex];
+            middleColors.push(middleSquare.style.backgroundColor);
+        }
+        return middleColors;
+    }
 
-        // Set gradient cycle to a random number between 10 and 18
-        const gradientCycle = Math.floor(Math.random() * (18 - 10 + 1)) + 10;
+    function getRandomTopColor(topGridSquares) {
+        // Get a random color from the top grid squares
+        const randomIndex = Math.floor(Math.random() * topGridSquares.length);
+        return topGridSquares[randomIndex].style.backgroundColor;
+    }
 
-        // Calculate number of columns needed to fill the viewport
+    function populateGrid(gridId, isBottomGrid = false) {
+        const grid = document.getElementById(gridId);
+        const squareSize = 15; // Size of each square
+
+        const gradientCycle = Math.floor(Math.random() * (150)) + 10; // Length of gradient
         const cols = Math.floor(window.innerWidth / squareSize);
+        const rows = isBottomGrid ? 6 : 1; // 6 rows for the bottom grid
 
         grid.style.display = 'grid';
         grid.style.gridTemplateColumns = `repeat(${cols}, ${squareSize}px)`;
@@ -36,18 +49,26 @@
         const baseColor = randomColor();
         const randomStart = Math.floor(Math.random() * gradientCycle);
 
-        for (let j = 0; j < cols; j++) {
-            const cell = document.createElement('div');
-            // Calculate position in the gradient cycle, starting from the random point
-            let cyclePos = (j + randomStart) % gradientCycle;
-            // Calculate shade factor
-            let shadeFactor = makeShadeFactor(cyclePos, gradientCycle);
-            cell.style.backgroundColor = shadeColor(baseColor, shadeFactor);
-            cell.style.width = `${squareSize}px`;
-            cell.style.height = `${squareSize}px`;
-            grid.appendChild(cell);
+        let topGridSquares = [];
+        if (isBottomGrid) {
+            topGridSquares = Array.from(document.getElementById('color-grid').children);
+        }
+
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                const cell = document.createElement('div');
+                let cellColor = isBottomGrid ? getRandomTopColor(topGridSquares) : shadeColor(baseColor, makeShadeFactor((j + randomStart) % gradientCycle, gradientCycle));
+                cell.style.backgroundColor = cellColor;
+                cell.style.width = `${squareSize}px`;
+                cell.style.height = `${squareSize}px`;
+
+                grid.appendChild(cell);
+            }
         }
     }
 
-    window.onload = populateGrid;
+    window.onload = () => {
+        populateGrid('color-grid');
+        populateGrid('bottom-color-grid', true);
+    };
 })();

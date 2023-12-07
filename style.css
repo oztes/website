@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: -1; /* This ensures the grid goes behind other content */
+    z-index: -1; 
 }
 
 
@@ -71,3 +71,45 @@ footer {
     text-align: center;
     padding: 1em 0;
 }
+
+@keyframes waveAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(15px); }  /* Inverted to move upwards */
+    100% { transform: translateY(0px); }
+}
+
+.wave-square {
+    animation: waveAnimation 3s ease-in-out infinite;
+    animation-delay: calc(-0.15s * var(--animation-order));
+}
+
+
+
+@keyframes waveAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(20px); } /* Adjust for more pronounced wave */
+}
+
+#bottom-color-grid {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px; /* Adjust based on 6 rows * 15px per square */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15px); /* Assuming each square is 15px */
+    grid-template-rows: repeat(6, 15px); /* 6 rows, each 15px high */
+    grid-gap: 0; /* Ensure no gap between rows and columns */
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bottom-color-grid div {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in width and height */
+}
+
+
