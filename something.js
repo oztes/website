@@ -1,4 +1,33 @@
 (function() {
+
+    
+    function setNavbarColor() {
+        const topGridSquares = Array.from(document.getElementById('color-grid').children);
+        let peakColor = 'rgb(0, 0, 0)'; // Start with an arbitrary color
+        let highestSaturation = 0; // Start with the lowest possible saturation
+    
+        topGridSquares.forEach(square => {
+            const rgbValues = square.style.backgroundColor.match(/\d+/g).map(Number);
+            const maxVal = Math.max(...rgbValues);
+            const minVal = Math.min(...rgbValues);
+            const saturation = maxVal - minVal; // Calculate saturation
+    
+            if (saturation > highestSaturation) {
+                peakColor = square.style.backgroundColor; // Update if a more saturated color is found
+                highestSaturation = saturation;
+            }
+        });
+    
+        // Set the nav squares to the color with the highest saturation
+        const navSquares = document.querySelectorAll('.nav-square');
+        navSquares.forEach(square => {
+            square.style.backgroundColor = peakColor;
+        });
+    }
+    
+    
+    
+
     function randomColor() {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
@@ -30,14 +59,13 @@
     }
 
     function getRandomTopColor(topGridSquares) {
-        // Get a random color from the top grid squares
         const randomIndex = Math.floor(Math.random() * topGridSquares.length);
         return topGridSquares[randomIndex].style.backgroundColor;
     }
 
 
-    const MIN_UPDATE_TIME = 500; // Minimum time for update 
-    const MAX_UPDATE_TIME = 1000; // Maximum time for update 
+    const MIN_UPDATE_TIME = 2000; // Minimum time for update 
+    const MAX_UPDATE_TIME = 5000; // Maximum time for update 
 
     function populateGrid(gridId, isBottomGrid = false) {
         const grid = document.getElementById(gridId);
@@ -109,5 +137,6 @@
     window.onload = () => {
         populateGrid('color-grid');
         populateGrid('bottom-color-grid', true);
+        setNavbarColor();
     };
 })();

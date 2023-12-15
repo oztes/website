@@ -8,6 +8,29 @@
     z-index: -1; 
 }
 
+.navbar {
+    display: flex;
+    justify-content: ;
+    align-items: center;
+    background-color: #f4f4f4; /* Background color of the navbar */
+    padding: 10px;
+    margin-bottom: 0; /* Reduce bottom margin */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    margin: 0 10px; /* Adjust spacing between nav items */
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-square {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
 
 body {           
     font-family: 'Switzer', sans-serif;                                 

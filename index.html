@@ -7,6 +7,15 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://api.fontshare.com/v2/css?f[]=switzer@101,600,701,800,501,601,900,100,700,901,400,201,401,200,300,301,801,500&display=swap" rel="stylesheet">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZL6S971RT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3ZL6S971RT');
+</script>
 <body>
     <div id="color-grid">
     </div>   
@@ -17,7 +26,14 @@
         <h1>Ozan Teo Sarac @ Williams College</h1>
     </div>
 
-   
+    <div class="navbar">
+        <a href="projects.html" class="nav-link"><div class="nav-square"></div>Projects</a>
+        <a href="photos.html" class="nav-link"><div class="nav-square"></div>Photos</a>
+        <a href="writing.html" class="nav-link"><div class="nav-square"></div>Writing</a>
+        <a href="other.html" class="nav-link"><div class="nav-square"></div>Other</a>
+    </div>
+    
+
     <div class="navbar">
       
     </div>
@@ -31,6 +47,13 @@
 
         <p>I was born in 2004 in Ankara, Turkey. I've lived in Ankara, Marseille, St. Petersburg, Chicago, Canberra and now reside full-time in Williamstown, MA as Housing Coordinator of <a href="https://facilities.williams.edu/properties/fayerweather/">Fayerweather Hall</a>.</p>
     </div>
+
+    <script>
+        fetch('https://api.ipify.org')
+            .then((res) => res.text())
+            .then(ip => console.log(ip))
+            .catch(err => console.log(err))
+    </script>
 
     
     <script src="something.js"></script>
